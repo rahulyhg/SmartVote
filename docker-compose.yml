@@ -6,7 +6,7 @@ services:
         ports:
             -  4080:80
         volumes:
-            - ./SmartVote:/var/www/html
+            - .:/var/www/html
         links:
             - 'mysql'
     mysql:
