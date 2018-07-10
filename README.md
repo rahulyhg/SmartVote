@@ -48,10 +48,15 @@ Please see the thesis.
 [Wu, Yifan. "An E-voting System based on Blockchain and Ring Signature." Master. University of Birmingham (2017).](http://www.dgalindo.es/mscprojects/yifan.pdf)
 
 ## Docker install
+
 Configure .env and .htaccess
+
 You can copy example from assets and rename it
+
 Run: `docker-compose up -d`
+
 Run: `docker container exec -it vote_php-apache_1 bash`
+
 Run: `composer install`
 
 ## Instruction
