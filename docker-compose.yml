@@ -1,0 +1,28 @@
+version: '3'
+services:
+    php-apache:
+        restart: 'always'
+        build: ./php-apache
+        ports:
+            -  4080:80
+        volumes:
+            - ./SmartVote:/var/www/html
+        links:
+            - 'mysql'
+    mysql:
+        restart: 'always'
+        image: mysql:5.7.19
+        volumes:
+            - mysql:/var/lib/mysql
+            - ./assets/db:/docker-entrypoint-initdb.d
+        ports:
+            - 32768:3306
+        environment:
+            TZ: "Indian/Antananarivo"
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_USER: 'admin'
+            MYSQL_PASSWORD: 'password'
+            MYSQL_DATABASE: 'smartvote'
+volumes:
+    mysql:
